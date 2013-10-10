@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.5"
+    ComputedModelVersion    "1.4"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -27,9 +27,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Andrew"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Oct 10 10:54:44 2013"
-  RTWModifiedTimeStamp	  303303261
-  ModelVersionFormat	  "1.%<AutoIncrement:5>"
+  LastModifiedDate	  "Wed Oct 02 11:00:34 2013"
+  RTWModifiedTimeStamp	  303303189
+  ModelVersionFormat	  "1.%<AutoIncrement:4>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -731,7 +731,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "17"
+    SIDHighWatermark	    "16"
     Block {
       BlockType		      Reference
       Name		      "Power Spectral\nDensity"
@@ -754,7 +754,7 @@ Model {
       Position		      [595, 264, 625, 296]
       ZOrder		      -16
       Floating		      off
-      Location		      [5, 48, 1285, 679]
+      Location		      [1, 48, 1281, 679]
       Open		      on
       NumInputPorts	      "1"
       List {
