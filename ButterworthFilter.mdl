@@ -21,14 +21,14 @@ Model {
   MinMaxOverflowArchiveMode "Overwrite"
   FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
-  Created		  "Sun Oct 13 16:01:40 2013"
-  Creator		  "Andrew"
+  Created		  "Tue Oct 15 14:53:41 2013"
+  Creator		  "Josh"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Andrew"
+  LastModifiedBy	  "Josh"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Oct 13 17:14:53 2013"
-  RTWModifiedTimeStamp	  303581975
+  LastModifiedDate	  "Tue Oct 15 15:32:57 2013"
+  RTWModifiedTimeStamp	  303751682
   ModelVersionFormat	  "1.%<AutoIncrement:1>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
@@ -133,7 +133,7 @@ Model {
 	  $ObjectID		  3
 	  Version		  "1.12.0"
 	  StartTime		  "0.0"
-	  StopTime		  "10.0"
+	  StopTime		  "6"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -627,7 +627,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition     [ 200, 45, 1080, 675 ] 
+      ConfigPrmDlgPosition     [ 243, 69, 1123, 699 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -718,7 +718,7 @@ Model {
   }
   System {
     Name		    "ButterworthFilter"
-    Location		    [484, 93, 1020, 382]
+    Location		    [715, 165, 1271, 454]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -738,7 +738,7 @@ Model {
       Name		      "Mux"
       SID		      "3"
       Ports		      [2, 1]
-      Position		      [335, 81, 340, 119]
+      Position		      [330, 86, 335, 124]
       ZOrder		      -12
       ShowName		      off
       Inputs		      "2"
@@ -749,15 +749,25 @@ Model {
       Name		      "Scope"
       SID		      "2"
       Ports		      [1]
-      Position		      [390, 84, 420, 116]
+      Position		      [445, 89, 475, 121]
       ZOrder		      -16
       Floating		      off
-      Location		      [188, 390, 512, 629]
+      Location		      [12, 124, 637, 671]
       Open		      off
       NumInputPorts	      "1"
       List {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		ScopeGraphics
+	FigureColor		"[0.5 0.5 0.5]"
+	AxesColor		"[0 0 0]"
+	AxesTickColor		"[1 1 1]"
+	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	LineStyles		"-|-|-|-|-|-"
+	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      off
       DataFormat	      "StructureWithTime"
@@ -768,7 +778,7 @@ Model {
       Name		      "Sine Wave"
       SID		      "1"
       Ports		      [0, 1]
-      Position		      [70, 85, 100, 115]
+      Position		      [30, 80, 60, 110]
       ZOrder		      -21
       SampleTime	      "0"
     }
@@ -776,36 +786,35 @@ Model {
       BlockType		      TransferFcn
       Name		      "Transfer Fcn"
       SID		      "4"
-      Position		      [200, 82, 260, 118]
+      Position		      [155, 77, 215, 113]
       ZOrder		      -9
-      Denominator	      "[1 1]"
-    }
-    Line {
-      SrcBlock		      "Sine Wave"
-      SrcPort		      1
-      Points		      [45, 0; 0, 5]
-      Branch {
-	Points			[0, 85; 155, 0; 0, -80]
-	DstBlock		"Mux"
-	DstPort			2
-      }
-      Branch {
-	Points			[0, -5]
-	DstBlock		"Transfer Fcn"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Transfer Fcn"
-      SrcPort		      1
-      Points		      [25, 0; 0, -10]
-      DstBlock		      "Mux"
-      DstPort		      1
+      Numerator		      "Num"
+      Denominator	      "Den"
     }
     Line {
       SrcBlock		      "Mux"
       SrcPort		      1
       DstBlock		      "Scope"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Sine Wave"
+      SrcPort		      1
+      Points		      [40, 0]
+      Branch {
+	DstBlock		"Transfer Fcn"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 45; 180, 0; 0, -25]
+	DstBlock		"Mux"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Transfer Fcn"
+      SrcPort		      1
+      DstBlock		      "Mux"
       DstPort		      1
     }
   }
